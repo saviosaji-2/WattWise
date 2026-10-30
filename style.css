@@ -1,0 +1,232 @@
+/* Basic styles for the WattWise page */
+:root {
+    --main-color: #438b72;
+    --main-dark: #2f6f59;
+    --page-color: #f3f6f5;
+    --card-color: #ffffff;
+    --text-color: #25332e;
+    --light-text: #68756f;
+    --border-color: #dce5e0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+    background: var(--page-color);
+    line-height: 1.5;
+}
+
+.header {
+    text-align: center;
+    padding: 28px 16px;
+    color: white;
+    background: var(--main-color);
+}
+
+.header h1 {
+    margin: 0 0 6px;
+    font-size: 32px;
+}
+
+.header p {
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--card-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--main-dark);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    background: #e7f1ec;
+}
+
+.container {
+    width: 92%;
+    max-width: 1050px;
+    margin: 26px auto 40px;
+}
+
+.intro {
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    margin-bottom: 4px;
+}
+
+.intro p {
+    margin-top: 0;
+    color: var(--light-text);
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.summary-box {
+    padding: 16px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+}
+
+.summary-box span {
+    display: block;
+    color: var(--light-text);
+    font-size: 13px;
+}
+
+.summary-box strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 23px;
+}
+
+.panel {
+    padding: 22px;
+    margin: 18px 0;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.panel h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.hint {
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    margin: 13px 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd7d0;
+    border-radius: 6px;
+    background: var(--card-color);
+    color: var(--text-color);
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #a9d1bd;
+    border-color: var(--main-color);
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+button {
+    margin-top: 16px;
+    padding: 10px 17px;
+    border: 0;
+    border-radius: 6px;
+    color: white;
+    background: var(--main-color);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--main-dark);
+}
+
+button.secondary {
+    color: var(--main-dark);
+    background: #e7f1ec;
+}
+
+.result {
+    margin-top: 16px;
+    padding: 13px;
+    min-height: 44px;
+    background: #f5f9f6;
+    border-left: 4px solid var(--main-color);
+    border-radius: 4px;
+}
+
+footer {
+    padding: 16px;
+    text-align: center;
+    color: var(--light-text);
+    font-size: 13px;
+}
+
+body.dark {
+    --page-color: #18221e;
+    --card-color: #222f29;
+    --text-color: #edf4ef;
+    --light-text: #b4c2ba;
+    --border-color: #3a4a41;
+}
+
+body.dark .result {
+    background: #293a31;
+}
+
+body.dark .nav a:hover,
+body.dark button.secondary {
+    background: #344b3f;
+    color: #eaf4ed;
+}
+
+@media (max-width: 650px) {
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+}

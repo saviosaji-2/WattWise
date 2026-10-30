@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WattWise - Electricity Bill Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>WattWise</h1>
+        <p>Analyze your electricity bills and understand your usage.</p>
+    </header>
+
+    <nav class="nav">
+        <a href="#bill-comparison">Bill Comparison</a>
+        <a href="#consumption-analysis">Consumption</a>
+        <a href="#ai-analysis">AI Analysis</a>
+        <a href="#settings">Settings</a>
+    </nav>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Electricity Dashboard</h2>
+            <p>Enter your bill details below to get a simple estimate.</p>
+            <div class="summary">
+                <div class="summary-box">
+                    <span>Previous Bill</span>
+                    <strong id="previousSummary">₹0</strong>
+                </div>
+                <div class="summary-box">
+                    <span>Current Bill</span>
+                    <strong id="currentSummary">₹0</strong>
+                </div>
+                <div class="summary-box">
+                    <span>Bill Difference</span>
+                    <strong id="differenceSummary">₹0</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="bill-comparison" class="panel">
+            <h2>Bill Comparison</h2>
+            <p class="hint">Compare two bill amounts. The consumer number is optional.</p>
+            <label for="consumerNumber">Electricity Consumer Number</label>
+            <input type="text" id="consumerNumber" placeholder="Enter consumer number">
+
+            <div class="two-column">
+                <div>
+                    <label for="previousBillAmount">Previous Bill Amount (₹)</label>
+                    <input type="number" id="previousBillAmount" min="0" placeholder="e.g. 1200">
+                </div>
+                <div>
+                    <label for="currentBillAmount">Current Bill Amount (₹)</label>
+                    <input type="number" id="currentBillAmount" min="0" placeholder="e.g. 1500">
+                </div>
+            </div>
+            <button id="compareButton">Compare Bills</button>
+            <div id="billResult" class="result" aria-live="polite">Your bill comparison will show here.</div>
+        </section>
+
+        <section id="consumption-analysis" class="panel">
+            <h2>Consumption Analysis</h2>
+            <p class="hint">This is an estimate based on the appliances you enter, not an actual meter reading.</p>
+            <div class="two-column">
+                <div>
+                    <label for="applianceName">Appliance Name</label>
+                    <input type="text" id="applianceName" placeholder="e.g. Fan">
+                </div>
+                <div>
+                    <label for="applianceWatts">Power (watts)</label>
+                    <input type="number" id="applianceWatts" min="0" placeholder="e.g. 75">
+                </div>
+                <div>
+                    <label for="applianceHours">Hours used per day</label>
+                    <input type="number" id="applianceHours" min="0" max="24" step="0.5" placeholder="e.g. 6">
+                </div>
+                <div>
+                    <label for="applianceQuantity">Number of appliances</label>
+                    <input type="number" id="applianceQuantity" min="1" value="1">
+                </div>
+            </div>
+            <button id="calculateButton">Calculate Usage</button>
+            <div id="usageResult" class="result" aria-live="polite">Your estimated usage will show here.</div>
+        </section>
+
+        <section id="ai-analysis" class="panel">
+            <h2>AI Analysis</h2>
+            <p class="hint">Ask Gemma 3 for electricity-saving advice. The AI runs locally on your computer through Ollama.</p>
+            <label for="aiPrompt">Ask a question about electricity</label>
+            <textarea id="aiPrompt" rows="3" placeholder="How can I reduce my electricity bill?"></textarea>
+            <button id="aiSubmitButton">Get Suggestion</button>
+            <div id="aiResponse" class="result" aria-live="polite">Your Gemma 3 answer will show here.</div>
+            <p class="hint">Do not enter passwords, payment details, or other sensitive information.</p>
+        </section>
+
+        <section id="settings" class="panel">
+            <h2>Settings</h2>
+            <div class="two-column">
+                <div>
+                    <label for="theme">Theme</label>
+                    <select id="theme">
+                        <option value="light">Light Mode</option>
+                        <option value="dark">Dark Mode</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="colorPalette">Main Color</label>
+                    <input type="color" id="colorPalette" value="#438b72">
+                </div>
+            </div>
+            <button id="saveSettingsButton" class="secondary">Apply Settings</button>
+            <p id="settingsMessage" class="hint"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>WattWise · Electricity estimates with local Gemma 3 AI</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
